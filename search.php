@@ -41,6 +41,10 @@ function search_route() {
     $category = isset($_GET["cat"]) ? $_GET["cat"] : "";
     $available_only = isset($_GET["avail"]) && $_GET["avail"] == "true";
 
+    $results = doStuff($term, $category, $available_only);
+
+    header("Content-Type: application/json");
+    echo json_encode($results);
 }
 
 search_route();
